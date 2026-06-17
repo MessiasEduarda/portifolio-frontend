@@ -2,6 +2,7 @@ import { Cormorant_Garamond, Inter, Italianno } from 'next/font/google';
 import './globals.css';
 import Preloader from './components/ui/Preloader';
 import WhatsAppButton from './components/ui/WhatsAppButton';
+import StyledComponentsRegistry from './lib/registry';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -31,9 +32,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
       <body className={`${cormorant.variable} ${inter.variable} ${italianno.variable}`}>
-        <Preloader name="Maria Messias" />
-        {children}
-        <WhatsAppButton />
+        <StyledComponentsRegistry>
+          <Preloader name="Maria Messias" />
+          {children}
+          <WhatsAppButton />
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
