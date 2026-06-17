@@ -122,14 +122,15 @@ const StaggerIn = ({ children, delay = 0 }) => {
 };
 
 const categories = [
-  { name: 'Linguagens',      items: ['JavaScript (ES6+)', 'TypeScript'] },
+  { name: 'Linguagens',        items: ['JavaScript (ES6+)', 'TypeScript'] },
   { name: 'Frameworks & Libs', items: ['React.js', 'Next.js', 'React Native', 'Angular', 'Vue.js', 'Redux', 'Context API', 'Expo'] },
-  { name: 'Estilização',     items: ['HTML5', 'CSS3', 'Styled-Components', 'Tailwind CSS', 'Flexbox', 'Grid', 'Layout Responsivo'] },
-  { name: 'Testes',          items: ['Jest', 'React Testing Library'] },
-  { name: 'Ferramentas',     items: ['Git', 'GitHub', 'Figma', 'APIs REST', 'WebSockets', 'OAuth 2.0', 'Node.js', 'Docker'] },
-  { name: 'Banco de Dados',  items: ['SQL', 'MySQL', 'PostgreSQL'] },
-  { name: 'Metodologias',    items: ['Clean Code', 'Git Flow', 'Scrum', 'Kanban', 'Code Review'] },
-  { name: 'Outros',          items: ['Storybook', 'Vitest', 'CI/CD', 'Acessibilidade Web (WCAG)'] },
+  { name: 'Estilização',       items: ['HTML5', 'CSS3', 'Styled-Components', 'Tailwind CSS', 'Flexbox', 'Grid', 'Layout Responsivo'] },
+  { name: 'Design & UI/UX',    items: ['Figma', 'Penpot', 'UI Design', 'UX Research', 'Prototipação', 'Wireframing', 'Design System'] },
+  { name: 'Testes',            items: ['Jest', 'React Testing Library'] },
+  { name: 'Ferramentas',       items: ['Git', 'GitHub', 'APIs REST', 'WebSockets', 'OAuth 2.0', 'Node.js', 'Docker'] },
+  { name: 'Banco de Dados',    items: ['SQL', 'MySQL', 'PostgreSQL'] },
+  { name: 'Metodologias',      items: ['Clean Code', 'Git Flow', 'Scrum', 'Kanban', 'Code Review'] },
+  { name: 'Outros',            items: ['Storybook', 'Vitest', 'CI/CD', 'Acessibilidade Web (WCAG)'] },
 ];
 
 export default function Habilidades() {

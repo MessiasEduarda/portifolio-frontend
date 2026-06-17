@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import FadeIn from '../ui/FadeIn';
 import {
-  Megaphone, Building2, Layers, ClipboardList, LayoutDashboard, Smartphone,
+  Megaphone, Building2, Layers, ClipboardList, LayoutDashboard, Smartphone, Palette,
   Plus, Check, ArrowRight,
 } from 'lucide-react';
 
@@ -62,26 +62,27 @@ const List = styled.div`
 
 const Item = styled.div`
   background: #0d1117;
+  opacity: ${({ $comingSoon }) => $comingSoon ? '0.65' : '1'};
 `;
 
 const ItemHeader = styled.button`
   width: 100%;
   display: grid;
-  grid-template-columns: 64px 44px 1fr 28px;
+  grid-template-columns: 64px 44px 1fr auto 28px;
   align-items: center;
   gap: 28px;
   padding: 32px 36px;
   background: transparent;
   border: none;
-  cursor: pointer;
+  cursor: ${({ $comingSoon }) => $comingSoon ? 'default' : 'pointer'};
   font-family: inherit;
   text-align: left;
   color: inherit;
   transition: background 0.3s;
-  &:hover { background: #111620; }
+  &:hover { background: ${({ $comingSoon }) => $comingSoon ? 'transparent' : '#111620'}; }
 
   @media (max-width: 700px) {
-    grid-template-columns: 40px 36px 1fr 24px;
+    grid-template-columns: 40px 36px 1fr auto 24px;
     gap: 16px;
     padding: 24px 24px;
   }
@@ -131,6 +132,18 @@ const ItemTagline = styled.p`
   margin-top: 6px;
 
   @media (max-width: 480px) { display: none; }
+`;
+
+const ComingSoonBadge = styled.span`
+  font-size: 0.55rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(201,168,76,0.45);
+  border: 1px solid rgba(201,168,76,0.15);
+  padding: 3px 10px;
+  font-weight: 300;
+  white-space: nowrap;
+  flex-shrink: 0;
 `;
 
 const Toggle = styled.div`
@@ -232,6 +245,21 @@ const SaibaMaisBtn = styled(Link)`
   &:hover { background: #c9a84c; color: #0d1117; }
 `;
 
+const ComingSoonBtn = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  border: 1px solid rgba(201,168,76,0.2);
+  color: rgba(201,168,76,0.35);
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: inherit;
+  cursor: default;
+`;
+
 const services = [
   {
     icon: Megaphone,
@@ -247,6 +275,7 @@ const services = [
     tags: ['Next.js', 'React', 'TypeScript', 'SEO'],
     example: 'Base do mesmo padrão usado neste portfólio',
     href: '/servicos/landing-pages',
+    comingSoon: false,
   },
   {
     icon: Building2,
@@ -262,6 +291,7 @@ const services = [
     tags: ['React', 'Next.js', 'Java', 'Spring Boot', 'PostgreSQL'],
     example: 'Como no projeto Institucional',
     href: '/servicos/sites-institucionais',
+    comingSoon: false,
   },
   {
     icon: Layers,
@@ -277,6 +307,7 @@ const services = [
     tags: ['Next.js', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL', 'JWT'],
     example: 'Clínica de Estética, Assistência Técnica, Gestão de Orçamentos',
     href: '/servicos/saas',
+    comingSoon: false,
   },
   {
     icon: ClipboardList,
@@ -292,6 +323,7 @@ const services = [
     tags: ['Next.js', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL', 'Prisma'],
     example: 'Gestão de Livraria, Assistência Técnica',
     href: '/servicos/sistemas-gestao',
+    comingSoon: false,
   },
   {
     icon: LayoutDashboard,
@@ -307,6 +339,7 @@ const services = [
     tags: ['React', 'TypeScript', 'APIs REST', 'WebSockets'],
     example: 'Módulos internos de SaaS e sistemas de gestão',
     href: '/servicos/dashboards',
+    comingSoon: false,
   },
   {
     icon: Smartphone,
@@ -322,12 +355,32 @@ const services = [
     tags: ['React Native', 'Expo', 'TypeScript', 'OAuth 2.0'],
     example: 'Plataforma de coaching esportivo com IA (Racewell)',
     href: '/servicos/apps-mobile',
+    comingSoon: false,
+  },
+  {
+    icon: Palette,
+    title: 'Design de Interfaces (UI/UX)',
+    tagline: 'Da ideia ao protótipo navegável, antes de escrever uma linha de código',
+    desc: 'Design de interfaces de alta fidelidade com foco em usabilidade e hierarquia visual — desde o mapeamento de fluxos e wireframes até protótipos navegáveis e design systems prontos para desenvolvimento. Trabalho realizado em Figma e Penpot.',
+    features: [
+      'Wireframes e fluxos de usuário',
+      'Protótipos navegáveis de alta fidelidade',
+      'Design systems e bibliotecas de componentes',
+      'Handoff organizado para desenvolvimento',
+    ],
+    tags: ['Figma', 'Penpot', 'UI Design', 'UX Research', 'Design System', 'Prototipação'],
+    example: 'Portfólio de designs em construção',
+    href: null,
+    comingSoon: true,
   },
 ];
 
 export default function ServicosList() {
   const [active, setActive] = useState(0);
-  const toggle = (i) => setActive((prev) => (prev === i ? null : i));
+  const toggle = (i, comingSoon) => {
+    if (comingSoon) return;
+    setActive((prev) => (prev === i ? null : i));
+  };
 
   return (
     <Section id="lista-servicos">
@@ -342,37 +395,49 @@ export default function ServicosList() {
         <List>
           {services.map((s, i) => {
             const Icon = s.icon;
-            const isActive = active === i;
+            const isActive = active === i && !s.comingSoon;
             return (
-              <Item key={s.title}>
-                <ItemHeader onClick={() => toggle(i)} aria-expanded={isActive}>
+              <Item key={s.title} $comingSoon={s.comingSoon}>
+                <ItemHeader
+                  onClick={() => toggle(i, s.comingSoon)}
+                  aria-expanded={isActive}
+                  $comingSoon={s.comingSoon}
+                >
                   <Num $active={isActive}>{String(i + 1).padStart(2, '0')}</Num>
                   <IconWrap $active={isActive}><Icon size={18} /></IconWrap>
                   <HeaderText>
                     <ItemTitle $active={isActive}>{s.title}</ItemTitle>
                     <ItemTagline>{s.tagline}</ItemTagline>
                   </HeaderText>
-                  <Toggle $active={isActive}><Plus size={18} /></Toggle>
+                  {s.comingSoon
+                    ? <ComingSoonBadge>Em breve</ComingSoonBadge>
+                    : <Plus size={18} style={{ opacity: 0 }} />
+                  }
+                  {!s.comingSoon && (
+                    <Toggle $active={isActive}><Plus size={18} /></Toggle>
+                  )}
                 </ItemHeader>
-                <Body $active={isActive}>
-                  <BodyInner>
-                    <PaddingWrapper>
-                      <Desc>{s.desc}</Desc>
-                      <FeatureGrid>
-                        {s.features.map((f, j) => (
-                          <Feature key={j}><Check size={14} />{f}</Feature>
-                        ))}
-                      </FeatureGrid>
-                      <Tags>
-                        {s.tags.map((t, j) => <Tag key={j}>{t}</Tag>)}
-                      </Tags>
-                      <Example>{s.example}</Example>
-                      <SaibaMaisBtn href={s.href}>
-                        Saiba mais <ArrowRight size={13} />
-                      </SaibaMaisBtn>
-                    </PaddingWrapper>
-                  </BodyInner>
-                </Body>
+                {!s.comingSoon && (
+                  <Body $active={isActive}>
+                    <BodyInner>
+                      <PaddingWrapper>
+                        <Desc>{s.desc}</Desc>
+                        <FeatureGrid>
+                          {s.features.map((f, j) => (
+                            <Feature key={j}><Check size={14} />{f}</Feature>
+                          ))}
+                        </FeatureGrid>
+                        <Tags>
+                          {s.tags.map((t, j) => <Tag key={j}>{t}</Tag>)}
+                        </Tags>
+                        <Example>{s.example}</Example>
+                        <SaibaMaisBtn href={s.href}>
+                          Saiba mais <ArrowRight size={13} />
+                        </SaibaMaisBtn>
+                      </PaddingWrapper>
+                    </BodyInner>
+                  </Body>
+                )}
               </Item>
             );
           })}

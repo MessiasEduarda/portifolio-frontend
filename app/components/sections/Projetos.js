@@ -70,6 +70,7 @@ const Card = styled.div`
   position: relative;
   transition: background 0.4s;
   cursor: default;
+  opacity: ${({ $comingSoon }) => $comingSoon ? '0.7' : '1'};
   &:hover { background: #0f1318; }
   &::before {
     content: '';
@@ -77,7 +78,7 @@ const Card = styled.div`
     top: 0; left: 0;
     width: 2px;
     height: 0;
-    background: #c9a84c;
+    background: ${({ $comingSoon }) => $comingSoon ? 'rgba(201,168,76,0.35)' : '#c9a84c'};
     transition: height 0.4s;
   }
   &:hover::before { height: 100%; }
@@ -86,12 +87,28 @@ const Card = styled.div`
   @media (max-width: 480px) { padding: 24px 20px; }
 `;
 
+const CardTop = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+`;
+
 const CardNum = styled.p`
   font-size: 0.65rem;
   letter-spacing: 3px;
   color: #333;
   font-weight: 300;
-  margin-bottom: 24px;
+`;
+
+const ComingSoonBadge = styled.span`
+  font-size: 0.55rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(201,168,76,0.5);
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 3px 10px;
+  font-weight: 300;
 `;
 
 const CardTitle = styled.h3`
@@ -150,6 +167,18 @@ const LinkBtn = styled.a`
   &:hover { color: #c9a84c; }
 `;
 
+const ComingSoonLink = styled.span`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #333;
+  font-weight: 300;
+  cursor: default;
+`;
+
 const ScaleIn = ({ children, delay = 0 }) => {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -173,12 +202,55 @@ const ScaleIn = ({ children, delay = 0 }) => {
 };
 
 const projects = [
-  { title: 'Concessionária Digital', desc: 'Plataforma arquitetada com React e Next.js no Front-End, utilizando TypeScript e Hooks para controle de estado e comportamentos interativos. Integrada a um Back-End em Java com Spring Boot e banco de dados PostgreSQL, formando uma stack robusta e preparada para crescimento.', tags: ['React', 'Next.js', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL'], code: 'https://github.com/MessiasEduarda/concessionaria-digital' },
-  { title: 'Gestão de Livraria', desc: 'Sistema de gestão de livraria com cadastro de acervo, controle de estoque e operações do dia a dia. Front-End em Next.js com TypeScript e Hooks, Back-End em Java com Spring Boot e persistência em PostgreSQL.', tags: ['Next.js', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL'], code: 'https://github.com/MessiasEduarda/gestao-livraria' },
-  { title: 'Clínica de Estética', desc: 'Sistema multi-tenant para gestão de clínicas de estética, construído sobre a mesma base arquitetural do sistema de livraria, porém com funcionalidades mais completas para o segmento. Front-End em Next.js com TypeScript e Hooks, Back-End em Java com Spring Boot e banco PostgreSQL.', tags: ['Next.js', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL', 'Multi-Tenant'], code: 'https://github.com/MessiasEduarda/clinica-de-estetica/tree/develop' },
-  { title: 'Gestão de Orçamentos (SaaS)', desc: 'SaaS multi-tenant de orçamentos automáticos para 7 segmentos. Calcula o orçamento automaticamente com preview em tempo real, gera PDF com código único de rastreio e envia direto pelo WhatsApp. Conta com planos de assinatura, pagamento via Pix/cartão e controle de acesso por perfis.', tags: ['React', 'Next.js', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL', 'SaaS'], code: 'https://github.com/MessiasEduarda/gestao-de-orcamentos' },
-  { title: 'Assistência Técnica', desc: 'Sistema de gestão completo para assistências técnicas: clientes, equipamentos, ordens de serviço com histórico e acompanhamento de status em tempo real, e módulo financeiro. Autenticação via JWT com suporte a multi-tenant.', tags: ['Next.js 14', 'TypeScript', 'Styled-Components', 'Node.js', 'Prisma', 'PostgreSQL'], code: 'https://github.com/MessiasEduarda/assistencia-tecnica' },
-  { title: 'Institucional', desc: 'Site institucional desenvolvido com React e Next.js (App Router), TypeScript e Hooks para controle de estado e interatividade. Back-End em Java com Spring Boot e PostgreSQL, com mapa interativo integrado e formulário de contato funcional.', tags: ['React', 'Next.js', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL'], code: 'https://github.com/MessiasEduarda/institucional' },
+  {
+    title: 'Concessionária Digital',
+    desc: 'Plataforma arquitetada com React e Next.js no Front-End, utilizando TypeScript e Hooks para controle de estado e comportamentos interativos. Integrada a um Back-End em Java com Spring Boot e banco de dados PostgreSQL, formando uma stack robusta e preparada para crescimento.',
+    tags: ['React', 'Next.js', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL'],
+    code: 'https://github.com/MessiasEduarda/concessionaria-digital',
+    comingSoon: false,
+  },
+  {
+    title: 'Gestão de Livraria',
+    desc: 'Sistema de gestão de livraria com cadastro de acervo, controle de estoque e operações do dia a dia. Front-End em Next.js com TypeScript e Hooks, Back-End em Java com Spring Boot e persistência em PostgreSQL.',
+    tags: ['Next.js', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL'],
+    code: 'https://github.com/MessiasEduarda/gestao-livraria',
+    comingSoon: false,
+  },
+  {
+    title: 'Clínica de Estética',
+    desc: 'Sistema multi-tenant para gestão de clínicas de estética, construído sobre a mesma base arquitetural do sistema de livraria, porém com funcionalidades mais completas para o segmento. Front-End em Next.js com TypeScript e Hooks, Back-End em Java com Spring Boot e banco PostgreSQL.',
+    tags: ['Next.js', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL', 'Multi-Tenant'],
+    code: 'https://github.com/MessiasEduarda/clinica-de-estetica/tree/develop',
+    comingSoon: false,
+  },
+  {
+    title: 'Gestão de Orçamentos (SaaS)',
+    desc: 'SaaS multi-tenant de orçamentos automáticos para 7 segmentos. Calcula o orçamento automaticamente com preview em tempo real, gera PDF com código único de rastreio e envia direto pelo WhatsApp. Conta com planos de assinatura, pagamento via Pix/cartão e controle de acesso por perfis.',
+    tags: ['React', 'Next.js', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL', 'SaaS'],
+    code: 'https://github.com/MessiasEduarda/gestao-de-orcamentos',
+    comingSoon: false,
+  },
+  {
+    title: 'Assistência Técnica',
+    desc: 'Sistema de gestão completo para assistências técnicas: clientes, equipamentos, ordens de serviço com histórico e acompanhamento de status em tempo real, e módulo financeiro. Autenticação via JWT com suporte a multi-tenant.',
+    tags: ['Next.js 14', 'TypeScript', 'Styled-Components', 'Node.js', 'Prisma', 'PostgreSQL'],
+    code: 'https://github.com/MessiasEduarda/assistencia-tecnica',
+    comingSoon: false,
+  },
+  {
+    title: 'Institucional',
+    desc: 'Site institucional desenvolvido com React e Next.js (App Router), TypeScript e Hooks para controle de estado e interatividade. Back-End em Java com Spring Boot e PostgreSQL, com mapa interativo integrado e formulário de contato funcional.',
+    tags: ['React', 'Next.js', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL'],
+    code: 'https://github.com/MessiasEduarda/institucional',
+    comingSoon: false,
+  },
+  {
+    title: 'Design de Interfaces',
+    desc: 'Prototipação e design de interfaces de alta fidelidade — desde wireframes e fluxos de usuário até design systems completos, com foco em usabilidade, hierarquia visual e consistência entre telas. Trabalhos realizados em Figma e Penpot.',
+    tags: ['Figma', 'Penpot', 'UI Design', 'UX Research', 'Prototipação', 'Design System'],
+    code: null,
+    comingSoon: true,
+  },
 ];
 
 export default function Projetos() {
@@ -195,15 +267,24 @@ export default function Projetos() {
         <Grid>
           {projects.map((p, i) => (
             <ScaleIn key={i} delay={i * 80}>
-              <Card>
-                <CardNum>0{i + 1}</CardNum>
+              <Card $comingSoon={p.comingSoon}>
+                <CardTop>
+                  <CardNum>0{i + 1}</CardNum>
+                  {p.comingSoon && <ComingSoonBadge>Em breve</ComingSoonBadge>}
+                </CardTop>
                 <CardTitle>{p.title}</CardTitle>
                 <CardDesc>{p.desc}</CardDesc>
                 <Tags>{p.tags.map((t, j) => <Tag key={j}>{t}</Tag>)}</Tags>
                 <Links>
-                  <LinkBtn href={p.code} target="_blank" rel="noopener noreferrer">
-                    <GitBranch size={12} /> Código
-                  </LinkBtn>
+                  {p.comingSoon ? (
+                    <ComingSoonLink>
+                      <GitBranch size={12} /> Portfólio em construção
+                    </ComingSoonLink>
+                  ) : (
+                    <LinkBtn href={p.code} target="_blank" rel="noopener noreferrer">
+                      <GitBranch size={12} /> Código
+                    </LinkBtn>
+                  )}
                 </Links>
               </Card>
             </ScaleIn>
