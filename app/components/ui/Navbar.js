@@ -157,17 +157,17 @@ const MobileCv = styled.a`
 `;
 
 const links = [
-  { label: 'Sobre', href: '#sobre' },
+  { label: 'Sobre',      href: '#sobre' },
   { label: 'Habilidades', href: '#habilidades' },
-  { label: 'Projetos', href: '#projetos' },
+  { label: 'Projetos',   href: '#projetos' },
   { label: 'Experiência', href: '#experiencia' },
-  { label: 'Serviços', href: '#servicos' },
-  { label: 'Contato', href: '#contato' },
+  { label: 'Serviços',   href: '#servicos' },
+  { label: 'Contato',    href: '#contato' },
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled,  setScrolled]  = useState(false);
+  const [menuOpen,  setMenuOpen]  = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -180,15 +180,42 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    setMenuOpen(false);
+    const isHome = window.location.pathname === '/';
+    if (isHome) {
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.href = '/' + href;
+    }
+  };
+
+  const handleLogoClick = (e) => {
+    e.preventDefault();
+    setMenuOpen(false);
+    const isHome = window.location.pathname === '/';
+    if (isHome) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      window.location.href = '/';
+    }
+  };
+
   return (
     <>
       <Nav $scrolled={scrolled}>
-        <Logo href="#hero">
+        <Logo href="/" onClick={handleLogoClick}>
           <img src="/logo.png" alt="Maria Messias" />
         </Logo>
         <NavLinks>
           {links.map(l => (
-            <li key={l.href}><NavLink href={l.href}>{l.label}</NavLink></li>
+            <li key={l.href}>
+              <NavLink href={l.href} onClick={(e) => handleNavClick(e, l.href)}>
+                {l.label}
+              </NavLink>
+            </li>
           ))}
         </NavLinks>
         <RightGroup>
@@ -207,7 +234,7 @@ export default function Navbar() {
           <X size={24} />
         </MobileClose>
         {links.map(l => (
-          <MobileLink key={l.href} href={l.href} onClick={() => setMenuOpen(false)}>
+          <MobileLink key={l.href} href={l.href} onClick={(e) => handleNavClick(e, l.href)}>
             {l.label}
           </MobileLink>
         ))}
