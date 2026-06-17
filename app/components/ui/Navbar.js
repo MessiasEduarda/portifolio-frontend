@@ -188,7 +188,7 @@ export default function Navbar() {
       const el = document.querySelector(href);
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     } else {
-      window.location.href = '/' + href;
+      window.location.assign('/' + href);  
     }
   };
 

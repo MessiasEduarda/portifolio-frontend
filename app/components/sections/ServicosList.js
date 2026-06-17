@@ -1,10 +1,11 @@
 'use client';
 import { useState } from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 import FadeIn from '../ui/FadeIn';
 import {
   Megaphone, Building2, Layers, ClipboardList, LayoutDashboard, Smartphone,
-  Plus, Check,
+  Plus, Check, ArrowRight,
 } from 'lucide-react';
 
 const Section = styled.section`
@@ -141,7 +142,6 @@ const Toggle = styled.div`
   transition: all 0.3s;
 `;
 
-/* CORREÇÃO: overflow: hidden no Body garante que nada vaze */
 const Body = styled.div`
   display: grid;
   grid-template-rows: ${({ $active }) => ($active ? '1fr' : '0fr')};
@@ -149,17 +149,11 @@ const Body = styled.div`
   overflow: hidden;
 `;
 
-/* CORREÇÃO: BodyInner com min-height: 0 e padding zerado quando fechado.
-   O truque é colocar o padding num wrapper interno que só tem altura
-   quando o grid-template-rows permite expansão. */
 const BodyInner = styled.div`
   min-height: 0;
   overflow: hidden;
 `;
 
-/* CORREÇÃO: PaddingWrapper carrega o padding real. Como está dentro de
-   BodyInner (que tem min-height: 0), o overflow: hidden do Body o corta
-   corretamente sem deixar espaço residual. */
 const PaddingWrapper = styled.div`
   padding: 0 36px 36px 136px;
 
@@ -201,7 +195,7 @@ const Tags = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 28px;
 `;
 
 const Tag = styled.span`
@@ -219,6 +213,23 @@ const Example = styled.p`
   color: #444;
   font-weight: 300;
   font-style: italic;
+  margin-bottom: 28px;
+`;
+
+const SaibaMaisBtn = styled(Link)`
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  border: 1px solid #c9a84c;
+  color: #c9a84c;
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: inherit;
+  transition: all 0.4s;
+  &:hover { background: #c9a84c; color: #0d1117; }
 `;
 
 const services = [
@@ -235,6 +246,7 @@ const services = [
     ],
     tags: ['Next.js', 'React', 'TypeScript', 'SEO'],
     example: 'Base do mesmo padrão usado neste portfólio',
+    href: '/servicos/landing-pages',
   },
   {
     icon: Building2,
@@ -249,6 +261,7 @@ const services = [
     ],
     tags: ['React', 'Next.js', 'Java', 'Spring Boot', 'PostgreSQL'],
     example: 'Como no projeto Institucional',
+    href: '/servicos/sites-institucionais',
   },
   {
     icon: Layers,
@@ -263,6 +276,7 @@ const services = [
     ],
     tags: ['Next.js', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL', 'JWT'],
     example: 'Clínica de Estética, Assistência Técnica, Gestão de Orçamentos',
+    href: '/servicos/saas',
   },
   {
     icon: ClipboardList,
@@ -277,6 +291,7 @@ const services = [
     ],
     tags: ['Next.js', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL', 'Prisma'],
     example: 'Gestão de Livraria, Assistência Técnica',
+    href: '/servicos/sistemas-gestao',
   },
   {
     icon: LayoutDashboard,
@@ -291,6 +306,7 @@ const services = [
     ],
     tags: ['React', 'TypeScript', 'APIs REST', 'WebSockets'],
     example: 'Módulos internos de SaaS e sistemas de gestão',
+    href: '/servicos/dashboards',
   },
   {
     icon: Smartphone,
@@ -305,12 +321,12 @@ const services = [
     ],
     tags: ['React Native', 'Expo', 'TypeScript', 'OAuth 2.0'],
     example: 'Plataforma de coaching esportivo com IA (Racewell)',
+    href: '/servicos/apps-mobile',
   },
 ];
 
 export default function ServicosList() {
   const [active, setActive] = useState(0);
-
   const toggle = (i) => setActive((prev) => (prev === i ? null : i));
 
   return (
@@ -351,6 +367,9 @@ export default function ServicosList() {
                         {s.tags.map((t, j) => <Tag key={j}>{t}</Tag>)}
                       </Tags>
                       <Example>{s.example}</Example>
+                      <SaibaMaisBtn href={s.href}>
+                        Saiba mais <ArrowRight size={13} />
+                      </SaibaMaisBtn>
                     </PaddingWrapper>
                   </BodyInner>
                 </Body>
