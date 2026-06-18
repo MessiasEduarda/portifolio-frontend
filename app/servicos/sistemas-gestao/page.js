@@ -67,7 +67,7 @@ export default function SistemasGestao() {
         <Hero>
           <Inner>
             <FadeIn direction="up" duration={800}>
-              <BackLink href="/servicos"><ArrowLeft size={12} /> Voltar aos Serviços</BackLink>
+              <BackLink href="/servicos"><ArrowLeft size={12} /> Voltar</BackLink>
               <GoldRule /><Label>Capacidade Técnica</Label>
               <HeroTitle>Sistemas de <strong>Gestão Empresarial</strong></HeroTitle>
               <HeroSub>Substitua planilhas e processos manuais por um sistema que organiza clientes, estoque, ordens de serviço e financeiro em um único fluxo digital confiável.</HeroSub>

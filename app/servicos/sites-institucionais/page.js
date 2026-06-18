@@ -113,7 +113,7 @@ export default function SitesInstitucionais() {
         <Hero>
           <Inner>
             <FadeIn direction="up" duration={800}>
-              <BackLink href="/servicos"><ArrowLeft size={12} /> Voltar aos Serviços</BackLink>
+              <BackLink href="/servicos"><ArrowLeft size={12} /> Voltar</BackLink>
               <GoldRule />
               <Label>Capacidade Técnica</Label>
               <HeroTitle>Sites <strong>Institucionais</strong></HeroTitle>
