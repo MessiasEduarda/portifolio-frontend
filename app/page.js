@@ -2,6 +2,7 @@
 import Navbar from './components/ui/Navbar';
 import Footer from './components/ui/Footer';
 import Hero from './components/sections/Hero';
+import BuildAoVivo from './components/sections/BuildAoVivo';
 import Sobre from './components/sections/Sobre';
 import Habilidades from './components/sections/Habilidades';
 import Projetos from './components/sections/Projetos';
@@ -17,6 +18,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <BuildAoVivo />
         <Sobre />
         <Habilidades />
         <Projetos />
