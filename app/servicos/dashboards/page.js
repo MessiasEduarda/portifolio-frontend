@@ -33,14 +33,14 @@ const ProcessDesc = styled.p`font-size: 0.82rem; color: #555; line-height: 1.85;
 const CTA = styled.section`padding: 100px 48px; background: #090c10; border-top: 1px solid rgba(255,255,255,0.04); text-align: center; @media (max-width: 768px) { padding: 72px 24px; }`;
 const CTATitle = styled.h2`font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 300; color: #fff; margin-bottom: 16px; strong { font-weight: 600; }`;
 const CTASub = styled.p`font-size: clamp(0.85rem, 1.3vw, 0.95rem); color: #555; line-height: 1.9; font-weight: 300; max-width: 520px; margin: 0 auto 40px;`;
-const BtnGold = styled.a`display: inline-flex; align-items: center; gap: 12px; padding: 16px 40px; background: transparent; border: 1px solid #c9a84c; color: #c9a84c; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 400; font-family: inherit; cursor: pointer; transition: all 0.4s; &:hover { background: #c9a84c; color: #0d1117; }`;
+const BtnGold = styled(Link)`display: inline-flex; align-items: center; gap: 12px; padding: 16px 40px; background: transparent; border: 1px solid #c9a84c; color: #c9a84c; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 400; font-family: inherit; cursor: pointer; transition: all 0.4s; &:hover { background: #c9a84c; color: #0d1117; }`;
 
 const pillars = [
   { icon: <Activity size={22} />, title: 'Dados em Tempo Real', desc: 'WebSockets e polling inteligente para atualização automática dos indicadores — sem precisar recarregar a página.' },
-  { icon: <Filter size={22} />, title: 'Filtros e Segmentação', desc: 'Filtros por período, equipe, produto, região ou qualquer dimensão relevante para o seu negócio, com aplicação instantânea.' },
+  { icon: <Filter size={22} />, title: 'Filtros e Segmentação', desc: 'Filtros por período, equipe, produto, região ou qualquer dimensão relevante para o negócio, com aplicação instantânea.' },
   { icon: <LayoutDashboard size={22} />, title: 'KPIs Visuais', desc: 'Gráficos de linha, barras, pizza e funis construídos com Recharts — elegantes, responsivos e com drill-down por clique.' },
   { icon: <Shield size={22} />, title: 'Controle de Permissões', desc: 'Cada perfil de usuário vê apenas os dados e ações que lhe cabem — sem risco de acesso indevido a informações sensíveis.' },
-  { icon: <Wifi size={22} />, title: 'Integração com APIs', desc: 'Conexão com qualquer fonte de dados via API REST, banco de dados ou webhooks — integramos com o que você já usa.' },
+  { icon: <Wifi size={22} />, title: 'Integração com APIs', desc: 'Conexão com qualquer fonte de dados via API REST, banco de dados ou webhooks — integramos com o que a empresa já usa.' },
   { icon: <Download size={22} />, title: 'Exportação de Relatórios', desc: 'Exportação em PDF e Excel com um clique — formatados para apresentação, não para análise técnica.' },
 ];
 
@@ -59,8 +59,6 @@ const process = [
   { title: 'Validação com o Time', desc: 'Sessão de validação com os usuários reais do dashboard — ajustamos filtros, gráficos e permissões com base no uso real.' },
 ];
 
-const WHATSAPP = `https://wa.me/5511953311935?text=${encodeURIComponent('Olá! Tenho interesse em um Dashboard ou Painel Administrativo. Pode me passar mais informações?')}`;
-
 export default function Dashboards() {
   return (
     <>
@@ -69,8 +67,8 @@ export default function Dashboards() {
         <Hero>
           <Inner>
             <FadeIn direction="up" duration={800}>
-              <BackLink href="/servicos"><ArrowLeft size={12} /> Voltar aos Serviços</BackLink>
-              <GoldRule /><Label>Serviço</Label>
+              <BackLink href="/servicos"><ArrowLeft size={12} /> Voltar</BackLink>
+              <GoldRule /><Label>Capacidade Técnica</Label>
               <HeroTitle>Dashboards & <strong>Painéis Administrativos</strong></HeroTitle>
               <HeroSub>Dados visuais e centralizados para decisões mais rápidas — painéis com KPIs em tempo real, filtros inteligentes e integração com qualquer fonte de dados.</HeroSub>
               <Tags>{['React', 'TypeScript', 'Recharts', 'APIs REST', 'WebSockets', 'Next.js'].map((t, i) => <Tag key={i}>{t}</Tag>)}</Tags>
@@ -78,13 +76,13 @@ export default function Dashboards() {
           </Inner>
         </Hero>
         <Section $alt><Inner><FadeIn direction="up" duration={800}><SectionTitle>O que faz um dashboard <strong>realmente útil</strong></SectionTitle><Grid $alt>{pillars.map((p, i) => <Card $alt key={i}><CardIcon>{p.icon}</CardIcon><CardTitle>{p.title}</CardTitle><CardDesc>{p.desc}</CardDesc></Card>)}</Grid></FadeIn></Inner></Section>
-        <Section><Inner><FadeIn direction="up" duration={800}><SectionTitle>O que está <strong>incluso</strong></SectionTitle><FeatureList>{features.map((f, i) => <Feature key={i}><Check size={14} />{f}</Feature>)}</FeatureList></FadeIn></Inner></Section>
+        <Section><Inner><FadeIn direction="up" duration={800}><SectionTitle>O que está <strong>no escopo</strong></SectionTitle><FeatureList>{features.map((f, i) => <Feature key={i}><Check size={14} />{f}</Feature>)}</FeatureList></FadeIn></Inner></Section>
         <Section $alt><Inner><FadeIn direction="up" duration={800}><SectionTitle>Como <strong>funciona</strong> o processo</SectionTitle><ProcessList>{process.map((p, i) => <ProcessItem key={i}><ProcessNum>{String(i + 1).padStart(2, '0')}</ProcessNum><div><ProcessTitle>{p.title}</ProcessTitle><ProcessDesc>{p.desc}</ProcessDesc></div></ProcessItem>)}</ProcessList></FadeIn></Inner></Section>
         <CTA><Inner><FadeIn direction="up" duration={800}>
-          <GoldRule style={{ margin: '0 auto 20px' }} /><Label>Vamos começar?</Label>
-          <CTATitle>Seus dados merecem um <strong>painel à altura</strong></CTATitle>
-          <CTASub>Me conta quais métricas importam pro seu negócio e eu construo o painel ideal.</CTASub>
-          <BtnGold href={WHATSAPP} target="_blank" rel="noopener noreferrer">Solicitar orçamento <ArrowRight size={14} /></BtnGold>
+          <GoldRule style={{ margin: '0 auto 20px' }} /><Label>Vamos conversar?</Label>
+          <CTATitle>Interessado em trabalhar <strong>juntos?</strong></CTATitle>
+          <CTASub>Estou em busca de novos desafios e pronta para contribuir com times que trabalham com dados e produtos complexos.</CTASub>
+          <BtnGold href="/#contato">Entrar em contato <ArrowRight size={14} /></BtnGold>
         </FadeIn></Inner></CTA>
       </Page>
       <Footer />

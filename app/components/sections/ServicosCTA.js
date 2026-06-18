@@ -97,7 +97,7 @@ const LinkBtn = styled.a`
 
 const WHATSAPP_NUMBER = '5511999999999'; // ← troque pelo seu número com DDI+DDD, sem espaços ou símbolos
 const WHATSAPP_MSG    = encodeURIComponent(
-  'Olá! Vim pelo seu portfólio e gostaria de solicitar um orçamento. Pode me ajudar?'
+  'Olá! Vim pelo seu portfólio. Poderiamos conversar?'
 );
 const WHATSAPP_LINK   = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
 
@@ -113,9 +113,6 @@ export default function ServicosCTA() {
             Me conta o que você precisa e eu te digo, com clareza, qual é o caminho técnico mais sensato — sem enrolação e sem vender solução maior do que o necessário.
           </Sub>
           <Actions>
-            <BtnGold href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-              Solicitar orçamento <ArrowRight size={14} />
-            </BtnGold>
             <LinkBtn href="#projetos">
               <GitBranch size={12} /> Ver projetos reais
             </LinkBtn>

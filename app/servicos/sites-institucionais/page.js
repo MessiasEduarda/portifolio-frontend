@@ -74,7 +74,7 @@ const CTA = styled.section`
 `;
 const CTATitle = styled.h2`font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 300; color: #fff; margin-bottom: 16px; strong { font-weight: 600; }`;
 const CTASub = styled.p`font-size: clamp(0.85rem, 1.3vw, 0.95rem); color: #555; line-height: 1.9; font-weight: 300; max-width: 520px; margin: 0 auto 40px;`;
-const BtnGold = styled.a`
+const BtnGold = styled(Link)`
   display: inline-flex; align-items: center; gap: 12px; padding: 16px 40px;
   background: transparent; border: 1px solid #c9a84c; color: #c9a84c; font-size: 0.7rem;
   letter-spacing: 3px; text-transform: uppercase; font-weight: 400; font-family: inherit;
@@ -105,8 +105,6 @@ const process = [
   { title: 'Entrega e Configuração', desc: 'Deploy em produção com domínio, DNS e certificado SSL configurados. Treinamento para uso do painel de atualização.' },
 ];
 
-const WHATSAPP = `https://wa.me/5511953311935?text=${encodeURIComponent('Olá! Tenho interesse em um Site Institucional. Pode me passar mais informações?')}`;
-
 export default function SitesInstitucionais() {
   return (
     <>
@@ -117,7 +115,7 @@ export default function SitesInstitucionais() {
             <FadeIn direction="up" duration={800}>
               <BackLink href="/servicos"><ArrowLeft size={12} /> Voltar aos Serviços</BackLink>
               <GoldRule />
-              <Label>Serviço</Label>
+              <Label>Capacidade Técnica</Label>
               <HeroTitle>Sites <strong>Institucionais</strong></HeroTitle>
               <HeroSub>Presença digital sólida para empresas e profissionais que precisam de credibilidade, visibilidade e um canal de contato funcional com seus clientes.</HeroSub>
               <Tags>
@@ -171,10 +169,10 @@ export default function SitesInstitucionais() {
           <Inner>
             <FadeIn direction="up" duration={800}>
               <GoldRule style={{ margin: '0 auto 20px' }} />
-              <Label>Vamos começar?</Label>
-              <CTATitle>Sua empresa merece uma <strong>presença digital profissional</strong></CTATitle>
-              <CTASub>Me conta sobre o seu negócio e eu apresento a melhor solução para você.</CTASub>
-              <BtnGold href={WHATSAPP} target="_blank" rel="noopener noreferrer">Solicitar orçamento <ArrowRight size={14} /></BtnGold>
+              <Label>Vamos conversar?</Label>
+              <CTATitle>Interessado em trabalhar <strong>juntos?</strong></CTATitle>
+              <CTASub>Estou em busca de novos desafios e pronta para contribuir com times que constroem produtos de qualidade.</CTASub>
+              <BtnGold href="/#contato">Entrar em contato <ArrowRight size={14} /></BtnGold>
             </FadeIn>
           </Inner>
         </CTA>

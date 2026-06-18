@@ -33,7 +33,7 @@ const ProcessDesc = styled.p`font-size: 0.82rem; color: #555; line-height: 1.85;
 const CTA = styled.section`padding: 100px 48px; background: #090c10; border-top: 1px solid rgba(255,255,255,0.04); text-align: center; @media (max-width: 768px) { padding: 72px 24px; }`;
 const CTATitle = styled.h2`font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 300; color: #fff; margin-bottom: 16px; strong { font-weight: 600; }`;
 const CTASub = styled.p`font-size: clamp(0.85rem, 1.3vw, 0.95rem); color: #555; line-height: 1.9; font-weight: 300; max-width: 520px; margin: 0 auto 40px;`;
-const BtnGold = styled.a`display: inline-flex; align-items: center; gap: 12px; padding: 16px 40px; background: transparent; border: 1px solid #c9a84c; color: #c9a84c; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 400; font-family: inherit; cursor: pointer; transition: all 0.4s; &:hover { background: #c9a84c; color: #0d1117; }`;
+const BtnGold = styled(Link)`display: inline-flex; align-items: center; gap: 12px; padding: 16px 40px; background: transparent; border: 1px solid #c9a84c; color: #c9a84c; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 400; font-family: inherit; cursor: pointer; transition: all 0.4s; &:hover { background: #c9a84c; color: #0d1117; }`;
 
 const pillars = [
   { icon: <Smartphone size={22} />, title: 'iOS e Android, Uma Base', desc: 'React Native com Expo: um único código funciona nas duas plataformas, reduzindo custo e tempo de desenvolvimento.' },
@@ -59,8 +59,6 @@ const process = [
   { title: 'Deploy nas Lojas', desc: 'Configuração de conta de desenvolvedor, build de produção, submissão e acompanhamento da aprovação nas lojas.' },
 ];
 
-const WHATSAPP = `https://wa.me/5511953311935?text=${encodeURIComponent('Olá! Tenho interesse em desenvolver um App Mobile. Pode me passar mais informações?')}`;
-
 export default function AppsMobile() {
   return (
     <>
@@ -69,22 +67,22 @@ export default function AppsMobile() {
         <Hero>
           <Inner>
             <FadeIn direction="up" duration={800}>
-              <BackLink href="/servicos"><ArrowLeft size={12} /> Voltar aos Serviços</BackLink>
-              <GoldRule /><Label>Serviço</Label>
+              <BackLink href="/servicos"><ArrowLeft size={12} /> Voltar</BackLink>
+              <GoldRule /><Label>Capacidade Técnica</Label>
               <HeroTitle>Apps <strong>Web & Mobile</strong></HeroTitle>
-              <HeroSub>Mesma experiência em qualquer tela — aplicações multiplataforma com React Native e Expo, integrações com APIs externas e funcionalidades em tempo real.</HeroSub>
+              <HeroSub>Aplicações multiplataforma com React Native e Expo, integrações com APIs externas, autenticação OAuth e funcionalidades em tempo real — da estrutura web ao app que vai no bolso do usuário.</HeroSub>
               <Tags>{['React Native', 'Expo', 'TypeScript', 'OAuth 2.0', 'WebSockets', 'iOS', 'Android'].map((t, i) => <Tag key={i}>{t}</Tag>)}</Tags>
             </FadeIn>
           </Inner>
         </Hero>
         <Section $alt><Inner><FadeIn direction="up" duration={800}><SectionTitle>O que entrega um app <strong>de verdade</strong></SectionTitle><Grid $alt>{pillars.map((p, i) => <Card $alt key={i}><CardIcon>{p.icon}</CardIcon><CardTitle>{p.title}</CardTitle><CardDesc>{p.desc}</CardDesc></Card>)}</Grid></FadeIn></Inner></Section>
-        <Section><Inner><FadeIn direction="up" duration={800}><SectionTitle>O que está <strong>incluso</strong></SectionTitle><FeatureList>{features.map((f, i) => <Feature key={i}><Check size={14} />{f}</Feature>)}</FeatureList></FadeIn></Inner></Section>
+        <Section><Inner><FadeIn direction="up" duration={800}><SectionTitle>O que está <strong>no escopo</strong></SectionTitle><FeatureList>{features.map((f, i) => <Feature key={i}><Check size={14} />{f}</Feature>)}</FeatureList></FadeIn></Inner></Section>
         <Section $alt><Inner><FadeIn direction="up" duration={800}><SectionTitle>Como <strong>funciona</strong> o processo</SectionTitle><ProcessList>{process.map((p, i) => <ProcessItem key={i}><ProcessNum>{String(i + 1).padStart(2, '0')}</ProcessNum><div><ProcessTitle>{p.title}</ProcessTitle><ProcessDesc>{p.desc}</ProcessDesc></div></ProcessItem>)}</ProcessList></FadeIn></Inner></Section>
         <CTA><Inner><FadeIn direction="up" duration={800}>
-          <GoldRule style={{ margin: '0 auto 20px' }} /><Label>Vamos começar?</Label>
-          <CTATitle>Pronto para levar seu produto <strong>para o mobile?</strong></CTATitle>
-          <CTASub>Me conta a ideia e eu te mostro o caminho técnico mais rápido para o mercado.</CTASub>
-          <BtnGold href={WHATSAPP} target="_blank" rel="noopener noreferrer">Solicitar orçamento <ArrowRight size={14} /></BtnGold>
+          <GoldRule style={{ margin: '0 auto 20px' }} /><Label>Vamos conversar?</Label>
+          <CTATitle>Interessado em trabalhar <strong>juntos?</strong></CTATitle>
+          <CTASub>Estou em busca de novos desafios e pronta para contribuir com times que constroem produtos mobile de verdade.</CTASub>
+          <BtnGold href="/#contato">Entrar em contato <ArrowRight size={14} /></BtnGold>
         </FadeIn></Inner></CTA>
       </Page>
       <Footer />

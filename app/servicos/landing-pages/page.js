@@ -252,7 +252,7 @@ const CTASub = styled.p`
   margin: 0 auto 40px;
 `;
 
-const BtnGold = styled.a`
+const BtnGold = styled(Link)`
   display: inline-flex;
   align-items: center;
   gap: 12px;
@@ -273,7 +273,7 @@ const BtnGold = styled.a`
 const pillars = [
   { icon: <Zap size={22} />, title: 'Performance Técnica', desc: 'Código otimizado para pontuação máxima no Google PageSpeed — LCP, CLS e FID dentro dos padrões Core Web Vitals.' },
   { icon: <Search size={22} />, title: 'SEO desde o Código', desc: 'Estrutura semântica com HTML5, meta tags corretas, Open Graph e Schema.org para aparecer nos resultados certos.' },
-  { icon: <MousePointerClick size={22} />, title: 'Conversão no Centro', desc: 'Cada seção, cada CTA e cada microcopy pensado para conduzir o visitante até a ação que importa para o seu negócio.' },
+  { icon: <MousePointerClick size={22} />, title: 'Conversão no Centro', desc: 'Cada seção, cada CTA e cada microcopy pensado para conduzir o visitante até a ação que importa para o negócio.' },
   { icon: <BarChart2 size={22} />, title: 'Analytics Integrado', desc: 'Configuração de Google Analytics 4, eventos personalizados e rastreamento de conversões para medir o que realmente importa.' },
   { icon: <Smartphone size={22} />, title: 'Mobile First', desc: 'Design e desenvolvimento começam pelo mobile — garantindo experiência perfeita em qualquer tamanho de tela.' },
   { icon: <Megaphone size={22} />, title: 'Integração com Tráfego', desc: 'Pronta para campanhas de Google Ads e Meta Ads — com pixels de rastreamento, UTMs e páginas de obrigado configuradas.' },
@@ -294,11 +294,9 @@ const process = [
   { title: 'Briefing e Estratégia', desc: 'Entendo o objetivo da página, o público-alvo, a proposta de valor e onde ela será divulgada. Com isso, definimos juntos a estrutura narrativa ideal.' },
   { title: 'Wireframe e Aprovação', desc: 'Esboço o fluxo de seções antes de codificar. Você aprova a estrutura antes de qualquer linha de código ser escrita.' },
   { title: 'Desenvolvimento', desc: 'Código em Next.js com TypeScript, estilização com Styled-Components, responsividade total e integração dos recursos técnicos (formulário, analytics, pixels).' },
-  { title: 'Testes e Ajustes', desc: 'Testo em múltiplos dispositivos e navegadores. Rodo o PageSpeed, ajusto o que for necessário e aplico suas correções de conteúdo.' },
-  { title: 'Entrega e Suporte', desc: 'Deploy em produção com domínio configurado. Fico disponível por 30 dias após a entrega para ajustes e dúvidas.' },
+  { title: 'Testes e Ajustes', desc: 'Testo em múltiplos dispositivos e navegadores. Rodo o PageSpeed, ajusto o que for necessário e aplico as correções de conteúdo.' },
+  { title: 'Entrega e Suporte', desc: 'Deploy em produção com domínio configurado. Disponível por 30 dias após a entrega para ajustes e dúvidas.' },
 ];
-
-const WHATSAPP = `https://wa.me/5511953311935?text=${encodeURIComponent('Olá! Tenho interesse em uma Landing Page. Pode me passar mais informações?')}`;
 
 export default function LandingPages() {
   return (
@@ -308,9 +306,9 @@ export default function LandingPages() {
         <Hero>
           <Inner>
             <FadeIn direction="up" duration={800}>
-              <BackLink href="/servicos"><ArrowLeft size={12} /> Voltar aos Serviços</BackLink>
+              <BackLink href="/servicos"><ArrowLeft size={12} /> Voltar</BackLink>
               <GoldRule />
-              <Label>Serviço</Label>
+              <Label>Capacidade Técnica</Label>
               <HeroTitle>Landing Pages de <strong>Alta Conversão</strong></HeroTitle>
               <HeroSub>
                 Páginas únicas construídas para transformar visitantes em leads, clientes ou agendamentos — com performance técnica, SEO real e narrativa visual estratégica.
@@ -342,7 +340,7 @@ export default function LandingPages() {
         <Section>
           <Inner>
             <FadeIn direction="up" duration={800}>
-              <SectionTitle>O que está <strong>incluso</strong></SectionTitle>
+              <SectionTitle>O que está <strong>no escopo</strong></SectionTitle>
               <FeatureList>
                 {features.map((f, i) => (
                   <Feature key={i}><Check size={14} />{f}</Feature>
@@ -375,11 +373,11 @@ export default function LandingPages() {
           <Inner>
             <FadeIn direction="up" duration={800}>
               <GoldRule style={{ margin: '0 auto 20px' }} />
-              <Label>Vamos começar?</Label>
-              <CTATitle>Pronta para criar a sua <strong>landing page?</strong></CTATitle>
-              <CTASub>Me conta o seu projeto e eu te apresento a proposta certa — sem enrolação.</CTASub>
-              <BtnGold href={WHATSAPP} target="_blank" rel="noopener noreferrer">
-                Solicitar orçamento <ArrowRight size={14} />
+              <Label>Vamos conversar?</Label>
+              <CTATitle>Interessado em trabalhar <strong>juntos?</strong></CTATitle>
+              <CTASub>Estou em busca de novos desafios e pronta para contribuir com times que precisam de front-end de alto nível.</CTASub>
+              <BtnGold href="/#contato">
+                Entrar em contato <ArrowRight size={14} />
               </BtnGold>
             </FadeIn>
           </Inner>
