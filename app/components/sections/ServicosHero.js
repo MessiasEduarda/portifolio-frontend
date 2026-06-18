@@ -81,10 +81,10 @@ const DiffLabel = styled.p`
 `;
 
 const differentiators = [
-  '100% personalizado para o seu negócio',
-  'Comunicação direta, sem intermediários',
-  'Código limpo, documentado e escalável',
-  'Suporte real após a entrega',
+  'Stack moderna e atualizada',
+  'Código limpo e bem estruturado',
+  'Experiência com projetos reais',
+  'Pronta para novos desafios',
 ];
 
 export default function ServicosHero() {
@@ -93,10 +93,10 @@ export default function ServicosHero() {
       <Inner>
         <FadeIn direction="up" duration={800}>
           <GoldRule />
-          <Label>Serviços</Label>
+          <Label>Capacidades Técnicas</Label>
           <Title>Sistemas e sites pensados para <strong>resolver problemas reais</strong></Title>
           <Sub>
-            Do site institucional que apresenta sua empresa ao sistema multi-tenant que sustenta um SaaS inteiro — eu projeto e desenvolvo a solução certa para o estágio em que seu negócio está, sempre com código limpo e pensado para crescer.
+            Do site institucional ao sistema multi-tenant — estes são os tipos de solução que sei construir, com código limpo, arquitetura sólida e atenção aos detalhes que fazem a diferença em produção.
           </Sub>
         </FadeIn>
         <FadeIn direction="up" delay={150} duration={800}>
