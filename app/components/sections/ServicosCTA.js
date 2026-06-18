@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 import FadeIn from '../ui/FadeIn';
 import { ArrowRight, GitBranch } from 'lucide-react';
+import Link from 'next/link';
 
 const Section = styled.section`
   padding: 120px 48px;
@@ -64,7 +65,7 @@ const Actions = styled.div`
   justify-content: center;
 `;
 
-const BtnGold = styled.a`
+const BtnGold = styled(Link)`
   display: inline-flex;
   align-items: center;
   gap: 12px;
@@ -95,12 +96,6 @@ const LinkBtn = styled.a`
   &:hover { color: #c9a84c; }
 `;
 
-const WHATSAPP_NUMBER = '5511999999999'; // ← troque pelo seu número com DDI+DDD, sem espaços ou símbolos
-const WHATSAPP_MSG    = encodeURIComponent(
-  'Olá! Vim pelo seu portfólio. Poderiamos conversar?'
-);
-const WHATSAPP_LINK   = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
-
 export default function ServicosCTA() {
   return (
     <Section id="servicos-cta">
@@ -108,11 +103,14 @@ export default function ServicosCTA() {
         <FadeIn direction="up" duration={800}>
           <GoldRule />
           <Label>Vamos conversar</Label>
-          <Title>Tem um projeto <strong>em mente?</strong></Title>
+          <Title>Interessado em trabalhar <strong>juntos?</strong></Title>
           <Sub>
-            Me conta o que você precisa e eu te digo, com clareza, qual é o caminho técnico mais sensato — sem enrolação e sem vender solução maior do que o necessário.
+            Estou em busca de novos desafios e pronta para contribuir com times que constroem produtos escaláveis e complexos.
           </Sub>
           <Actions>
+            <BtnGold href="/#contato">
+              Entrar em contato <ArrowRight size={14} />
+            </BtnGold>
             <LinkBtn href="#projetos">
               <GitBranch size={12} /> Ver projetos reais
             </LinkBtn>
