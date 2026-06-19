@@ -18,46 +18,28 @@ const Section = styled.section`
   @media (max-width: 480px)  { padding: 64px 16px; }
 `;
 
-const Inner = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-`;
+const Inner = styled.div`max-width: 1200px; margin: 0 auto;`;
 
 const Header = styled.div`
   margin-bottom: 72px;
   @media (max-width: 768px) { margin-bottom: 48px; }
 `;
 
-const GoldRule = styled.div`
-  width: 32px;
-  height: 1px;
-  background: #c9a84c;
-  margin-bottom: 20px;
-`;
+const GoldRule = styled.div`width: 32px; height: 1px; background: #c9a84c; margin-bottom: 20px;`;
 
 const Label = styled.p`
-  font-size: 0.65rem;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  color: #c9a84c;
-  font-weight: 300;
-  margin-bottom: 16px;
+  font-size: 0.65rem; letter-spacing: 5px; text-transform: uppercase;
+  color: #c9a84c; font-weight: 300; margin-bottom: 16px;
 `;
 
 const Title = styled.h2`
-  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
-  font-weight: 300;
-  color: #fff;
-  letter-spacing: -0.5px;
-  strong { font-weight: 600; }
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem); font-weight: 300; color: #fff;
+  letter-spacing: -0.5px; strong { font-weight: 600; }
 `;
 
 const List = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.04);
+  display: flex; flex-direction: column; gap: 1px;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.04);
 `;
 
 const Item = styled.div`
@@ -90,66 +72,36 @@ const ItemHeader = styled.button`
 
 const Num = styled.span`
   font-family: var(--font-cormorant), serif;
-  font-size: 1.6rem;
-  font-weight: 300;
+  font-size: 1.6rem; font-weight: 300;
   color: ${({ $active }) => ($active ? '#c9a84c' : '#333')};
   transition: color 0.3s;
-
   @media (max-width: 700px) { font-size: 1.3rem; }
 `;
 
 const IconWrap = styled.div`
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
+  width: 44px; height: 44px; border-radius: 50%;
   border: 1px solid ${({ $active }) => ($active ? '#c9a84c' : 'rgba(255,255,255,0.1)')};
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   color: ${({ $active }) => ($active ? '#c9a84c' : '#666')};
-  transition: all 0.3s;
-  flex-shrink: 0;
-
+  transition: all 0.3s; flex-shrink: 0;
   @media (max-width: 700px) { width: 36px; height: 36px; }
 `;
 
-const HeaderText = styled.div`
-  min-width: 0;
-`;
+const HeaderText = styled.div`min-width: 0;`;
 
 const ItemTitle = styled.h3`
-  font-size: clamp(0.95rem, 1.6vw, 1.15rem);
-  font-weight: 400;
+  font-size: clamp(0.95rem, 1.6vw, 1.15rem); font-weight: 400;
   color: ${({ $active }) => ($active ? '#fff' : '#ddd')};
-  letter-spacing: 0.3px;
-  transition: color 0.3s;
+  letter-spacing: 0.3px; transition: color 0.3s;
 `;
 
 const ItemTagline = styled.p`
-  font-size: clamp(0.72rem, 1.1vw, 0.78rem);
-  color: #555;
-  font-weight: 300;
-  margin-top: 6px;
-
+  font-size: clamp(0.72rem, 1.1vw, 0.78rem); color: #555; font-weight: 300; margin-top: 6px;
   @media (max-width: 480px) { display: none; }
 `;
 
-const ComingSoonBadge = styled.span`
-  font-size: 0.55rem;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: rgba(201,168,76,0.45);
-  border: 1px solid rgba(201,168,76,0.15);
-  padding: 3px 10px;
-  font-weight: 300;
-  white-space: nowrap;
-  flex-shrink: 0;
-`;
-
 const Toggle = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   color: ${({ $active }) => ($active ? '#c9a84c' : '#555')};
   transform: rotate(${({ $active }) => ($active ? '45deg' : '0deg')});
   transition: all 0.3s;
@@ -162,102 +114,46 @@ const Body = styled.div`
   overflow: hidden;
 `;
 
-const BodyInner = styled.div`
-  min-height: 0;
-  overflow: hidden;
-`;
+const BodyInner = styled.div`min-height: 0; overflow: hidden;`;
 
 const PaddingWrapper = styled.div`
   padding: 0 36px 36px 136px;
-
   @media (max-width: 700px) { padding: 0 24px 28px 80px; }
   @media (max-width: 480px) { padding: 0 20px 24px 20px; }
 `;
 
 const Desc = styled.p`
-  font-size: clamp(0.82rem, 1.2vw, 0.88rem);
-  color: #777;
-  line-height: 1.9;
-  font-weight: 300;
-  max-width: 700px;
-  margin-bottom: 28px;
+  font-size: clamp(0.82rem, 1.2vw, 0.88rem); color: #777; line-height: 1.9;
+  font-weight: 300; max-width: 700px; margin-bottom: 28px;
 `;
 
 const FeatureGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px 32px;
-  margin-bottom: 28px;
-
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px 32px; margin-bottom: 28px;
   @media (max-width: 600px) { grid-template-columns: 1fr; }
 `;
 
 const Feature = styled.div`
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  color: #888;
-  font-size: 0.8rem;
-  font-weight: 300;
-  line-height: 1.6;
-
+  display: flex; align-items: flex-start; gap: 10px;
+  color: #888; font-size: 0.8rem; font-weight: 300; line-height: 1.6;
   svg { color: #c9a84c; flex-shrink: 0; margin-top: 3px; }
 `;
 
-const Tags = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 28px;
-`;
+const Tags = styled.div`display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px;`;
 
 const Tag = styled.span`
-  font-size: 0.6rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #c9a84c;
-  border: 1px solid rgba(201,168,76,0.2);
-  padding: 4px 12px;
-  font-weight: 300;
+  font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase;
+  color: #c9a84c; border: 1px solid rgba(201,168,76,0.2); padding: 4px 12px; font-weight: 300;
 `;
 
 const Example = styled.p`
-  font-size: 0.72rem;
-  color: #444;
-  font-weight: 300;
-  font-style: italic;
-  margin-bottom: 28px;
+  font-size: 0.72rem; color: #444; font-weight: 300; font-style: italic; margin-bottom: 28px;
 `;
 
 const SaibaMaisBtn = styled(Link)`
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 28px;
-  border: 1px solid #c9a84c;
-  color: #c9a84c;
-  font-size: 0.65rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-weight: 400;
-  font-family: inherit;
-  transition: all 0.4s;
-  &:hover { background: #c9a84c; color: #0d1117; }
-`;
-
-const ComingSoonBtn = styled.span`
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 28px;
-  border: 1px solid rgba(201,168,76,0.2);
-  color: rgba(201,168,76,0.35);
-  font-size: 0.65rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-weight: 400;
-  font-family: inherit;
-  cursor: default;
+  display: inline-flex; align-items: center; gap: 10px; padding: 12px 28px;
+  border: 1px solid #c9a84c; color: #c9a84c; font-size: 0.65rem;
+  letter-spacing: 3px; text-transform: uppercase; font-weight: 400; font-family: inherit;
+  transition: all 0.4s; &:hover { background: #c9a84c; color: #0d1117; }
 `;
 
 const services = [
@@ -369,9 +265,9 @@ const services = [
       'Handoff organizado para desenvolvimento',
     ],
     tags: ['Figma', 'Penpot', 'UI Design', 'UX Research', 'Design System', 'Prototipação'],
-    example: 'Portfólio de designs em construção',
-    href: null,
-    comingSoon: true,
+    example: 'Login, dashboard, termos e políticas — sistema completo',
+    href: '/servicos/design-ux-ui',
+    comingSoon: false,
   },
 ];
 
@@ -409,35 +305,28 @@ export default function ServicosList() {
                     <ItemTitle $active={isActive}>{s.title}</ItemTitle>
                     <ItemTagline>{s.tagline}</ItemTagline>
                   </HeaderText>
-                  {s.comingSoon
-                    ? <ComingSoonBadge>Em breve</ComingSoonBadge>
-                    : <Plus size={18} style={{ opacity: 0 }} />
-                  }
-                  {!s.comingSoon && (
-                    <Toggle $active={isActive}><Plus size={18} /></Toggle>
-                  )}
+                  <Plus size={18} style={{ opacity: 0 }} />
+                  <Toggle $active={isActive}><Plus size={18} /></Toggle>
                 </ItemHeader>
-                {!s.comingSoon && (
-                  <Body $active={isActive}>
-                    <BodyInner>
-                      <PaddingWrapper>
-                        <Desc>{s.desc}</Desc>
-                        <FeatureGrid>
-                          {s.features.map((f, j) => (
-                            <Feature key={j}><Check size={14} />{f}</Feature>
-                          ))}
-                        </FeatureGrid>
-                        <Tags>
-                          {s.tags.map((t, j) => <Tag key={j}>{t}</Tag>)}
-                        </Tags>
-                        <Example>{s.example}</Example>
-                        <SaibaMaisBtn href={s.href}>
-                          Saiba mais <ArrowRight size={13} />
-                        </SaibaMaisBtn>
-                      </PaddingWrapper>
-                    </BodyInner>
-                  </Body>
-                )}
+                <Body $active={isActive}>
+                  <BodyInner>
+                    <PaddingWrapper>
+                      <Desc>{s.desc}</Desc>
+                      <FeatureGrid>
+                        {s.features.map((f, j) => (
+                          <Feature key={j}><Check size={14} />{f}</Feature>
+                        ))}
+                      </FeatureGrid>
+                      <Tags>
+                        {s.tags.map((t, j) => <Tag key={j}>{t}</Tag>)}
+                      </Tags>
+                      <Example>{s.example}</Example>
+                      <SaibaMaisBtn href={s.href}>
+                        Saiba mais <ArrowRight size={13} />
+                      </SaibaMaisBtn>
+                    </PaddingWrapper>
+                  </BodyInner>
+                </Body>
               </Item>
             );
           })}
