@@ -2,7 +2,8 @@
 import { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import FadeIn from '../ui/FadeIn';
-import { GitBranch } from 'lucide-react';
+import Link from 'next/link';
+import { GitBranch, ArrowRight } from 'lucide-react';
 
 const Section = styled.section`
   padding: 120px 48px;
@@ -207,6 +208,7 @@ const projects = [
     desc: 'Plataforma arquitetada com React e Next.js no Front-End, utilizando TypeScript e Hooks para controle de estado e comportamentos interativos. Integrada a um Back-End em Java com Spring Boot e banco de dados PostgreSQL, formando uma stack robusta e preparada para crescimento.',
     tags: ['React', 'Next.js', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL'],
     code: 'https://github.com/MessiasEduarda/concessionaria-digital',
+    href: null,
     comingSoon: false,
   },
   {
@@ -214,6 +216,7 @@ const projects = [
     desc: 'Sistema de gestão de livraria com cadastro de acervo, controle de estoque e operações do dia a dia. Front-End em Next.js com TypeScript e Hooks, Back-End em Java com Spring Boot e persistência em PostgreSQL.',
     tags: ['Next.js', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL'],
     code: 'https://github.com/MessiasEduarda/gestao-livraria',
+    href: null,
     comingSoon: false,
   },
   {
@@ -221,6 +224,7 @@ const projects = [
     desc: 'Sistema multi-tenant para gestão de clínicas de estética, construído sobre a mesma base arquitetural do sistema de livraria, porém com funcionalidades mais completas para o segmento. Front-End em Next.js com TypeScript e Hooks, Back-End em Java com Spring Boot e banco PostgreSQL.',
     tags: ['Next.js', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL', 'Multi-Tenant'],
     code: 'https://github.com/MessiasEduarda/clinica-de-estetica/tree/develop',
+    href: null,
     comingSoon: false,
   },
   {
@@ -228,6 +232,7 @@ const projects = [
     desc: 'SaaS multi-tenant de orçamentos automáticos para 7 segmentos. Calcula o orçamento automaticamente com preview em tempo real, gera PDF com código único de rastreio e envia direto pelo WhatsApp. Conta com planos de assinatura, pagamento via Pix/cartão e controle de acesso por perfis.',
     tags: ['React', 'Next.js', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL', 'SaaS'],
     code: 'https://github.com/MessiasEduarda/gestao-de-orcamentos',
+    href: null,
     comingSoon: false,
   },
   {
@@ -235,6 +240,7 @@ const projects = [
     desc: 'Sistema de gestão completo para assistências técnicas: clientes, equipamentos, ordens de serviço com histórico e acompanhamento de status em tempo real, e módulo financeiro. Autenticação via JWT com suporte a multi-tenant.',
     tags: ['Next.js 14', 'TypeScript', 'Styled-Components', 'Node.js', 'Prisma', 'PostgreSQL'],
     code: 'https://github.com/MessiasEduarda/assistencia-tecnica',
+    href: null,
     comingSoon: false,
   },
   {
@@ -242,6 +248,7 @@ const projects = [
     desc: 'Site institucional desenvolvido com React e Next.js (App Router), TypeScript e Hooks para controle de estado e interatividade. Back-End em Java com Spring Boot e PostgreSQL, com mapa interativo integrado e formulário de contato funcional.',
     tags: ['React', 'Next.js', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL'],
     code: 'https://github.com/MessiasEduarda/institucional',
+    href: null,
     comingSoon: false,
   },
   {
@@ -249,7 +256,8 @@ const projects = [
     desc: 'Prototipação e design de interfaces de alta fidelidade — desde wireframes e fluxos de usuário até design systems completos, com foco em usabilidade, hierarquia visual e consistência entre telas. Trabalhos realizados em Figma e Penpot.',
     tags: ['Figma', 'Penpot', 'UI Design', 'UX Research', 'Prototipação', 'Design System'],
     code: null,
-    comingSoon: true,
+    href: '/servicos/design-ux-ui',
+    comingSoon: false,
   },
 ];
 
@@ -280,6 +288,10 @@ export default function Projetos() {
                     <ComingSoonLink>
                       <GitBranch size={12} /> Portfólio em construção
                     </ComingSoonLink>
+                  ) : p.href ? (
+                    <LinkBtn as={Link} href={p.href}>
+                      <ArrowRight size={12} /> Ver detalhes
+                    </LinkBtn>
                   ) : (
                     <LinkBtn href={p.code} target="_blank" rel="noopener noreferrer">
                       <GitBranch size={12} /> Código
