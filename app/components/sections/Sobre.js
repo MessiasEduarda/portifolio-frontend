@@ -128,9 +128,9 @@ const stats = [
 ];
 
 const paragraphs = [
-  'Sou desenvolvedora front-end com mais de 3 anos de experiência criando produtos digitais web e mobile. Minha trajetória começou com a curiosidade de entender como os sites funcionam e evoluiu para uma carreira sólida em desenvolvimento de interfaces modernas e escaláveis.',
-  'Trabalho com React, Next.js, TypeScript e Styled-Components no dia a dia, além de desenvolver aplicações mobile com React Native e Expo. Tenho experiência estruturando integrações com APIs REST, WebSockets e autenticação OAuth 2.0, sempre com foco em performance, acessibilidade e experiência do usuário.',
-  'Já colaborei diretamente com times de back-end, IA e infraestrutura em ambientes ágeis, e busco constantemente me atualizar com as melhores práticas do mercado, estudando novas tecnologias e aprimorando minha forma de transformar ideias complexas em interfaces simples e intuitivas.',
+  'Sou desenvolvedora full-stack com foco em front-end e mais de 3 anos criando produtos digitais web e mobile. Minha trajetória começou com a curiosidade de entender como os sites funcionam e evoluiu para uma carreira em desenvolvimento de interfaces modernas e escaláveis.',
+  'Trabalho com React, Next.js, TypeScript e Styled-Components no dia a dia, além de desenvolver aplicações mobile com React Native e Expo. Atuei no front-end de uma plataforma de coaching esportivo com IA, integrando WebSockets, OAuth 2.0 e serviços Garmin e Strava na sincronização de dados em tempo real.',
+  'No back-end, venho me desenvolvendo com Java, Spring Boot e PostgreSQL, colaborando com times de back-end, IA e infraestrutura em ambientes ágeis. Busco constantemente me atualizar com as melhores práticas do mercado e transformar ideias complexas em interfaces simples e intuitivas.',
 ];
 
 export default function Sobre() {
