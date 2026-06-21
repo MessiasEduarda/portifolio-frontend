@@ -190,15 +190,15 @@ export default function Hero() {
         <NameBlock>
           <NameLeft ref={nameLeftRef}>Maria</NameLeft>
           <SubLeft ref={subLeftRef}>
-            Front-End Developer<br />
-            React · Next.js · TypeScript
+            Desenvolvedora Full-Stack React<br />
+            React · Next.js · TypeScript · React Native
           </SubLeft>
         </NameBlock>
         <NameBlock>
           <NameRight ref={nameRightRef}>Messias</NameRight>
           <SubRight ref={subRightRef}>
-            Web & Mobile<br />
-            Disponível para novos projetos
+            Java · Spring Boot<br />
+            PostgreSQL
           </SubRight>
         </NameBlock>
       </TextLayer>
