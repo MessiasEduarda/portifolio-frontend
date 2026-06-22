@@ -620,12 +620,12 @@ export default function BuildAoVivo() {
                   <BuildContent $active={status.subs === 'filled'}>
                     <ProtoTextLayer style={{ position: 'relative', width: '100%', padding: '0 5%', alignItems: 'flex-start' }}>
                       <div>
-                        <ProtoSub>Front-End Developer</ProtoSub>
-                        <ProtoSub>React · Next.js · TypeScript</ProtoSub>
+                        <ProtoSub>Desenvolvedora Full-Stack React</ProtoSub>
+                        <ProtoSub>React · Next.js · TypeScript · React Native</ProtoSub>
                       </div>
                       <div>
-                        <ProtoSubRight>Web &amp; Mobile</ProtoSubRight>
-                        <ProtoSubRight>Disponível para novos projetos</ProtoSubRight>
+                        <ProtoSubRight>Java · Spring Boot</ProtoSubRight>
+                        <ProtoSubRight>PostgreSQL</ProtoSubRight>
                       </div>
                     </ProtoTextLayer>
                   </BuildContent>
